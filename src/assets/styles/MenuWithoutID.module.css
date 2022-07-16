@@ -1,0 +1,10 @@
+.restaurants {
+    display: flex;
+    justify-content: center;
+}
+
+.resItem {
+    border: 2px red solid;
+    padding: 2% 5%;
+    margin: 5%;
+}

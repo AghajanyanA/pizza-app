@@ -1,0 +1,7 @@
+p > a {
+    color: black !important;
+    font-family: sans-serif;
+    font-size: medium;
+    padding: 0;
+    text-decoration: underline;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.navList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #e6373b;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    padding: 10px;
+}
+
+a[class='active'] {
+    background: linear-gradient(180deg, rgba(255,0,0,1) 0%, rgba(161,0,4,1) 50%, rgba(255,0,0,1) 100%);
+}
