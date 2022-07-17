@@ -7,15 +7,16 @@ import {MenuWithoutID} from "./MenuWithoutID/MenuWithoutID";
 import c from '../../../assets/styles/Menu.module.css'
 import {Filters} from "./Filters/Filters";
 
-const Menu = () => {
+const Menu = ({id}) => {
 
     const dispatch = useDispatch()
 
     const {restaurantId} = useParams()
-
+    const istina = id ? id : restaurantId
+    // debugger
     useEffect(() => {
-        dispatch(getMenuById(restaurantId))
-    }, [restaurantId]) //eslint-disable-line
+        dispatch(getMenuById(istina))
+    }, [istina]) //eslint-disable-line
 
 
     const menuData = useSelector(state => state.menu.data)
@@ -25,7 +26,6 @@ const Menu = () => {
 
     return (
         <>
-
             {loading && 'Loading...'}
             {noID && <MenuWithoutID />}
             {error && error}

@@ -3,7 +3,6 @@ import axios from "../../axios/axios";
 
 export const getMenuById = (id, category = 'pizza', rank ) => async dispatch => {
     const orderBy = rank ? `&orderBy=${rank}` : ''
-    console.log(category, rank, 'hehehe')
     try {
         if(!id) {
             dispatch(setNoID())
