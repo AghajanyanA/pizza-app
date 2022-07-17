@@ -11,7 +11,7 @@ const Restaurants = () => {
 
     useEffect(() => {
         dispatch(getRestaurants())
-    }, []) //eslint-disable-line
+    }, [dispatch]) //eslint-disable-line
 
     return (
         <div>
