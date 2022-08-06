@@ -5,11 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {store} from "./assets/redux/redux";
+import {CartProvider} from "react-use-cart";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+      <CartProvider>
+          <App />
+      </CartProvider>
   </Provider>
 );
 

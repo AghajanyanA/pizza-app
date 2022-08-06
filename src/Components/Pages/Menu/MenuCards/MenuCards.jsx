@@ -1,7 +1,10 @@
 import React from "react";
 import c from '../../../../assets/styles/menuCards.module.css'
+import {useCart} from "react-use-cart";
 
 export const MenuCards = (props) => {
+
+    const { addItem } = useCart()
     const cartIconURL = 'https://cdn-icons-png.flaticon.com/512/263/263142.png'
 
     const rank = props.rank
@@ -16,7 +19,7 @@ export const MenuCards = (props) => {
                 <span className={c.category}>Category: {props.category}</span>
                 <span className={c.rank}>{rank && <span>Rank: {rank}</span>} </span>
                 {/*<span className={c.toppings}>{topping && <div>Topping: {topping.map((item, index) => <p key={index} className={`topping-${index + 1}`}>{item}</p>)}</div> }</span>*/}
-                <button> <img src={cartIconURL} alt='' /> </button>
+                <button onClick={() => addItem(props)}> <img src={cartIconURL} alt='' /> </button>
             </div>
     )
 }
