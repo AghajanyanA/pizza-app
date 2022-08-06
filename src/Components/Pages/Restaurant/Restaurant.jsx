@@ -13,10 +13,7 @@ const Restaurant = () => {
     useEffect(() => {
         dispatch(getRestaurantData(restaurantId))
     }, []) //eslint-disable-line
-
-    const loading = useSelector(state => state.restaurant.loading)
-    const errorMessage = useSelector(state => state.restaurant.errorMessage)
-    const data = useSelector(state => state.restaurant.data)
+    const {loading, errorMessage, data} = useSelector(state => state.restaurant)
 
 
     return (

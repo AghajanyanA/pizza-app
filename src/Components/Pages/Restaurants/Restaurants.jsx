@@ -5,9 +5,7 @@ import {RestaurantsCard} from "./RestaurantsCard/RestaurantsCard";
 
 const Restaurants = () => {
     const dispatch = useDispatch()
-    const restsData = useSelector(state => state.restaurants.data)
-    const loading = useSelector(state => state.restaurants.loading)
-    const error = useSelector(state => state.restaurants.errorMessage)
+    const {restsData, loading, error} = useSelector(state => state.restaurants)
 
     useEffect(() => {
         dispatch(getRestaurants())

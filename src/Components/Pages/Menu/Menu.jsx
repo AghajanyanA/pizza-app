@@ -6,23 +6,24 @@ import {MenuCards} from "./MenuCards/MenuCards";
 import {MenuWithoutID} from "./MenuWithoutID/MenuWithoutID";
 import c from '../../../assets/styles/Menu.module.css'
 import {Filters} from "./Filters/Filters";
+import {Cart} from "../../Cart/Cart";
+import {useCart} from "react-use-cart";
 
 const Menu = ({id}) => {
 
+    const { setItems } = useCart()
     const dispatch = useDispatch()
 
     const {restaurantId} = useParams()
-    const istina = id ? id : restaurantId
-    // debugger
+    const truth = id ? id : restaurantId  //its the noid loop // solved
+
+    const {menuData, loading, error, noID} = useSelector(state => state.menu)
+
     useEffect(() => {
-        dispatch(getMenuById(istina))
-    }, [istina]) //eslint-disable-line
+        dispatch(getMenuById(truth))       // this // solved
+        setItems(menuData)
+    }, [truth]) //eslint-disable-line
 
-
-    const menuData = useSelector(state => state.menu.data)
-    const loading = useSelector(state => state.menu.loading)
-    const error = useSelector(state => state.menu.errorMessage)
-    const noID = useSelector(state => state.menu.noID)
 
     return (
         <>
@@ -33,6 +34,7 @@ const Menu = ({id}) => {
                 <div className={c.wrapper} >
                     <div className={c.filters}><Filters /></div>
                     <div className={c.cards}>{menuData.map(item => <MenuCards key={item.id} {...item} />)}</div>
+                    <Cart />
                 </div>
 
             }
