@@ -13,6 +13,6 @@ export const getMenuById = (id, category = 'pizza', rank ) => async dispatch => 
         dispatch(loadSuccess(response.data))
     }
     catch (e) {
-    dispatch(loadFailed(e))
+        dispatch(loadFailed(e))
     }
 }
